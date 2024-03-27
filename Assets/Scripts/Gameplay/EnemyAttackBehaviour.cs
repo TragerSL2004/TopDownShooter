@@ -13,15 +13,14 @@ public class EnemyAttackBehaviour : MonoBehaviour
     {
         _movement = GetComponent<EnemyMovementBehaviour>();    
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         //If the target isn't the target return
-        if (collision.gameObject != _movement.Target)
+        if (collision.transform != _movement.Target)
             return;
 
         //Get a reference to the attached health script
-        HealthBehaviour health = collision.gameObject.GetComponent<HealthBehaviour>();
+        HealthBehaviour health = collision.transform.GetComponent<HealthBehaviour>();
 
         //If the health isn't null, deal damage
         if (health)

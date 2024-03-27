@@ -34,7 +34,7 @@ public class SpawnerBehaviour : MonoBehaviour
             //Create a new enemy in the scene
             GameObject spawnedEnemy = Instantiate(_spawnObject, transform.position, new Quaternion());
             //Set the enemy target to be the target the spawner was given
-            spawnedEnemy.GetComponent<EnemyMovementBehaviour>().Target = _enemyTarget;
+            spawnedEnemy.GetComponent<EnemyMovementBehaviour>()._target = _enemyTarget.transform;
             //Pause for the given time in seconds before resuming the function
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }
